@@ -31,7 +31,7 @@ const FloatingDiv = () => {
                 <div className="w-full absolute bottom-0 -mb-[7rem] rounded-b-xl overflow-hidden bg-green-300">
                     <div className="relative whitespace-nowrap animate-marquee-right">
                         <p className="inline-block px-4 py-4 text-sm text-black">
-                        Welcome to our online store! | Latest Offers | Big Discounts on Electronics | Buy 1 Get 1 Free on selected items | Free shipping on all orders over $100! | New products just arrived, check them out now! | Limited time offer, don't miss out!
+                        Welcome to our online store! | Latest Offers | Big Discounts on Electronics | Buy 1 Get 1 Free on selected items | Free shipping on all orders over $100! | New products just arrived, check them out now! | Limited time offer, don&apos;t miss out!
                         </p>
                     </div>
                 </div>

@@ -20,6 +20,7 @@
     "framer-motion": "^11.9.0",
     "i": "^0.3.7",
     "mini-svg-data-uri": "^1.4.4",
+    "netlify-cli": "^17.36.4",
     "next": "14.2.5",
     "next-auth": "^4.24.8",
     "next-sanity": "^9.4.2",

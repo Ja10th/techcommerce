@@ -8,7 +8,7 @@ import CartProvider from "@/components/Provider";
 import ShoppingCartModule from "@/components/ShoppingCartModule";
 import { Auth0Provider } from '@auth0/auth0-react';
 import { useEffect, useState } from "react";
-import { metadata } from './Metadata'; // Your metadata import
+import { metadata } from './metadata'; // Your metadata import
 
 const inter = Inter({ subsets: ["latin"] });
 
