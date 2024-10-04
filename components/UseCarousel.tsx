@@ -24,7 +24,7 @@ const UseCarousel = ({ data }: { data: any }) => {
   useEffect(() => {
     const intervalId1 = setInterval(() => {
       setCurrentIndex1((prevIndex) => (prevIndex + 1) % heroImages1.length);
-    }, 300); // Change image every 5 seconds
+    }, 2000); // Change image every 5 seconds
 
     return () => clearInterval(intervalId1); // Clean up interval on component unmount
   }, [heroImages1.length]);
@@ -33,7 +33,7 @@ const UseCarousel = ({ data }: { data: any }) => {
   useEffect(() => {
     const intervalId2 = setInterval(() => {
       setCurrentIndex2((prevIndex) => (prevIndex + 1) % heroImages2.length);
-    }, 5000); // Change image every 5 seconds
+    }, 2000); // Change image every 5 seconds
 
     return () => clearInterval(intervalId2); // Clean up interval on component unmount
   }, [heroImages2.length]);

@@ -30,7 +30,7 @@ const AddtoCart = ({name, description, price, currency, price_id ,image}:Product
     onClick={() => {
         addItem(product), handleCartClick();
     }}
-    className="px-8 bg-indigo-400 py-2 text-gray-100 rounded-2xl">
+    className="px-8 bg-blue-500 py-2 text-gray-100 rounded-2xl">
     Add to Cart
   </button>
   )

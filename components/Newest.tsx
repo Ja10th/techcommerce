@@ -5,7 +5,7 @@ import { FaArrowRight } from 'react-icons/fa6';
 import Timer from './Timer';
 import { useAuth0 } from '@auth0/auth0-react';
 
-interface DataType {
+export interface DataType {
   _id: string;
   productImage: string;
   price: number;
@@ -47,7 +47,7 @@ const Newest = async () => {
           <span className='flex gap-2 items-center'>More <FaArrowRight /></span>
         </Link>
       </div>
-      <div className='flex py-10 justify-around bg-slate-100 mb-10 px-10 rounded-b-xl'> {/* Added gap to prevent overflow */}
+      <div className='flex py-10 justify-around bg-slate-100 border mb-10 px-10 rounded-b-xl'> {/* Added gap to prevent overflow */}
         {data.map((product) => (
             <Link href={`/product/${product.slug}`} key={product._id}
             className='flex flex-col'
@@ -61,13 +61,13 @@ const Newest = async () => {
                 height={300} // These can be adjusted
                 />
             </div>
-            <div className='mt-4 flex'>
+            <div className='mt-4 flex pl-2'>
                 <div>
                 <Link href={`/product/${product.slug}`}>
                     <h3 className='text-gray-500 font-[400]'>{product.name}</h3>
                 </Link>
-                <p className='font-[400] text-gray-700 text-lg'>{'\u20A6'}{ product.price.toLocaleString() }</p>
-                <p className='font-[300] text-md line-through text-gray-500'>{'\u20A6'}{ (product.price + 150000).toLocaleString() }</p>
+                <p className='font-[400] text-gray-700 text-sm'>NGN<span className='text-lg font-bold pl-1'>{product.price.toLocaleString() }</span></p>
+                <p className='font-[300] text-md line-through text-gray-500'>NGN <span>{(product.price + 150000).toLocaleString()}</span></p>
                 <p className='text-sm'>{product.itemleft} items left</p>
 
                 </div>
