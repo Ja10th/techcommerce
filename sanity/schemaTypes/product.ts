@@ -1,3 +1,4 @@
+
 export default {
     name: 'product',
     type: 'document',
@@ -51,6 +52,17 @@ export default {
                     type: 'category'
                 }
             ]
+        },
+        {
+            name: 'seller',
+            title: 'Seller',
+            type: 'reference',
+            to: [
+                {
+                    type: 'seller'
+                }
+            ]
         }
+
     ]
 }

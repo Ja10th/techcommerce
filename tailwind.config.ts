@@ -112,6 +112,10 @@ const config = {
           '0%': { transform: 'translateX(100%)' },
           '100%': { transform: 'translateX(-100%)' },
         },
+        marqueeRight: {
+          '0%': { transform: 'translateX(-100%)' },
+          '100%': { transform: 'translateX(100%)' },
+        },
         moveHorizontal: {
           "0%": {
             transform: "translateX(-50%) translateY(-10%)",
@@ -154,6 +158,7 @@ const config = {
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         marquee: 'marquee 10s linear infinite',
+        'marquee-right': 'marqueeRight 15s linear infinite',
         "accordion-up": "accordion-up 0.2s ease-out",
         spotlight: "spotlight 2s ease .75s 1 forwards",
         shimmer: "shimmer 2s linear infinite",

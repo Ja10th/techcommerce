@@ -74,7 +74,7 @@ const Navbar = () => {
                             placeholder="Search products, brands"
                             value={searchTerm} 
                             onChange={(e) => setSearchTerm(e.target.value)}
-                            className="border rounded-xl p-2 w-[150px] lg:w-[400px] placeholder:pl-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                            className="border rounded-xl py-2 px-3 w-[150px] lg:w-[400px]  focus:outline-none focus:ring-2 focus:ring-blue-500"
                         />
                         <button
                             onClick={handleSearch}
@@ -99,16 +99,18 @@ const Navbar = () => {
                                     &times; 
                                 </div>
 
-                                <div className="flex flex-col space-y-4 text-white text-lg">
-                                    <div className="flex items-center space-x-2 cursor-pointer hover:text-gray-300" onClick={handleAccountClick}>
+                                <div className="flex flex-col space-y-4 text-lg">
+                                    <div className="flex items-center space-x-2 cursor-pointer text-gray-400 hover:text-black" onClick={handleAccountClick}>
                                         <RiAccountCircleLine size={24} />
                                         <span>{isAuthenticated ? user?.name || 'User' : 'Account'}</span>
                                     </div>
 
-                                    <div className="flex items-center space-x-2 cursor-pointer hover:text-gray-300">
+                                    <Link
+                                    href='/'
+                                    className="flex items-center space-x-2 cursor-pointer hover:text-black">
                                         <RiQuestionLine size={24} />
-                                        <span className="text-normal">Help</span>
-                                    </div>
+                                        <span className="text-normal hover:text-black">Help</span>
+                                    </Link>
 
                                     <div className="flex items-center space-x-2 cursor-pointer hover:text-gray-300">
                                         <RiAccountCircleLine size={24} />
@@ -129,28 +131,32 @@ const Navbar = () => {
 
                     <div className="hidden md:flex justify-between ">
                         <div 
-                            className="flex items-center space-x-2 cursor-pointer hover:text-black p-2 rounded-lg" 
+                            className="flex items-center space-x-2 cursor-pointer hover:text-black group p-2 rounded-lg" 
                             onClick={handleAccountClick}
                         >
-                            <RiAccountCircleLine size={24} className='text-gray-500'/>
-                            <span className="text-normal text-gray-500">{isAuthenticated ? user?.name || 'User' : 'Account'}</span>
+                            <RiAccountCircleLine size={24} className='text-gray-500 group-hover:text-black'/>
+                            <p className="text-normal text-gray-500 group-hover:text-black">{isAuthenticated ? user?.name || 'User' : 'Account'}</p>
                         </div>
 
-                        <div className="flex items-center space-x-2 cursor-pointer hover:text-black p-2 rounded-lg">
-                            <RiQuestionLine size={24} className='text-gray-500'/>
-                            <span className="text-normal text-gray-500">Help</span>
-                        </div>
+                        <Link 
+                        href='/help'
+                        className="flex items-center space-x-2 cursor-pointer p-2 group rounded-lg">
+                            <RiQuestionLine size={24} className='text-gray-500 group-hover:text-black'/>
+                            <span className="text-normal text-gray-500 group-hover:text-black">Help</span>
+                        </Link>
 
-                        <div className="flex items-center space-x-2 cursor-pointer hover:text-black p-2 rounded-lg">
-                            <RiAccountCircleLine size={24} className='text-gray-500'/>
-                            <span className="text-normal text-gray-500">Blog</span>
-                        </div>
+                        <Link 
+                        href='/blogpost'
+                        className="flex items-center space-x-2 cursor-pointer group p-2 rounded-lg">
+                            <RiAccountCircleLine size={24} className='text-gray-500 group-hover:text-black'/>
+                            <span className="text-normal text-gray-500 group-hover:text-black ">Blog</span>
+                        </Link>
 
                         <div 
                             onClick={handleCartClick} 
-                            className="flex items-center space-x-2 cursor-pointer hover:text-black p-2 rounded-lg">
-                            <RiShoppingCartLine size={24} className='text-gray-500'/>
-                            <span className="text-normal text-gray-500">Cart</span> 
+                            className="flex items-center space-x-2 cursor-pointer group p-2 rounded-lg">
+                            <RiShoppingCartLine size={24} className='text-gray-500 group-hover:text-black'/>
+                            <span className="text-normal text-gray-500 group-hover:text-black">Cart</span> 
                         </div>
                     </div>
                 </div>
