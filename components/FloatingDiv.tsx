@@ -4,7 +4,7 @@ import { TbMailFilled } from "react-icons/tb";
 
 const FloatingDiv = () => {
   return (
-    <div>
+    <div className='px-6'>
         <div className='max-w-7xl mx-auto bg-red-400 py-28 my-20 rounded-xl'>
             <div className='relative'>
                 <div className="w-full absolute top-0 -mt-[7rem] rounded-t-xl overflow-hidden bg-purple">
@@ -19,8 +19,8 @@ const FloatingDiv = () => {
                 <div className="flex justify-center items-center space-x-1">
                         <input
                             type="text"
-                            placeholder="Search products, brands"
-                            className="border rounded-xl py-2 px-3 w-[150px] lg:w-[400px]  focus:outline-none focus:ring-2 focus:ring-blue-500"
+                            placeholder="Enter your email address"
+                            className="border rounded-xl py-2 px-3 w-[220px] lg:w-[400px]  focus:outline-none focus:ring-2 focus:ring-blue-500"
                         />
                         <button
                             className="bg-blue-500 text-white px-4 py-2 placeholder:font-light rounded-xl hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500"
@@ -37,34 +37,38 @@ const FloatingDiv = () => {
                 </div>
             </div>
         </div>
-            <div className='max-w-7xl mx-auto pb-10'>
-                <div className='flex gap-4'>
-                    <div className='px-10 py-8 flex items-center justify-center gap-3 rounded-xl border w-[600px] bg-slate-100'>
-                        <div className='bg-white p-4 rounded-xl border'>
-                        <TbMailFilled className='text-3xl '/>
-                        </div>
-                        <div className='flex flex-col '>
-                            <h2 className='md font-[400]'>Contact</h2>
-                            <p className='text-sm font-light'>Jamesoluwaleye@gmail.com</p>
-                        </div>
-                    </div>
-                    <div className='px-10 flex justify-center items-center bg-slate-100 rounded-xl border'>
-                        <FaInstagram className='text-3xl'/>
-                    </div>
-                    <div className='px-10 flex justify-center items-center bg-slate-100 rounded-xl border'>
-                        <FaTwitter className='text-3xl'/>
-                    </div>
-                    <div className='px-10 flex justify-center items-center bg-slate-100 rounded-xl border'>
-                        <FaYoutube className='text-3xl'/>
-                    </div>
-                    <div className='px-10 flex justify-center items-center bg-slate-100 rounded-xl border'>
-                        <FaLinkedin className='text-3xl'/>
-                    </div>
-                    <div className='px-10 flex justify-center items-center bg-slate-100 rounded-xl border'> 
-                        <FaWifi className='text-4xl'/>
-                    </div>
+        <div className='max-w-7xl mx-auto pb-10'>
+            <div className='flex flex-wrap gap-4 justify-center'>
+                {/* Contact Section */}
+                <div className='px-6 py-6 sm:px-10 sm:py-8 flex items-center justify-center gap-3 rounded-xl border w-full sm:w-[400px] lg:w-[600px] bg-slate-100'>
+                <div className='bg-white p-3 sm:p-4 rounded-xl border'>
+                    <TbMailFilled className='text-2xl sm:text-3xl' />
+                </div>
+                <div className='flex flex-col'>
+                    <h2 className='text-md font-[400]'>Contact</h2>
+                    <p className='text-sm font-light'>Jamesoluwaleye@gmail.com</p>
+                </div>
+                </div>
+
+                {/* Social Icons */}
+                <div className='px-6 sm:px-10 py-2 flex justify-center items-center bg-slate-100 rounded-xl border'>
+                <FaInstagram className='text-2xl sm:text-3xl' />
+                </div>
+                <div className='px-6 sm:px-10 flex justify-center items-center bg-slate-100 rounded-xl border'>
+                <FaTwitter className='text-2xl sm:text-3xl' />
+                </div>
+                <div className='px-6 sm:px-10 flex justify-center items-center bg-slate-100 rounded-xl border'>
+                <FaYoutube className='text-2xl sm:text-3xl' />
+                </div>
+                <div className='px-6 sm:px-10 flex justify-center items-center bg-slate-100 rounded-xl border'>
+                <FaLinkedin className='text-2xl sm:text-3xl' />
+                </div>
+                <div className='px-6 sm:px-10 flex justify-center items-center bg-slate-100 rounded-xl border'>
+                <FaWifi className='text-3xl sm:text-4xl' />
                 </div>
             </div>
+            </div>
+
             <div className='flex border justify-between max-w-7xl mx-auto bg-slate-100 py-3 px-4 my-3 font-light text-sm rounded-xl'>
                 <p>© InfoWorld Global. All rights reserved.</p>
                 <p>Privacy Policy</p>

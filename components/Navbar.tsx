@@ -88,12 +88,12 @@ const Navbar = () => {
                     <div className="relative">
                         <button 
                             onClick={handleMenuToggle} 
-                            className="md:hidden p-2 rounded-lg text-2xl hover:bg-gray-400">
+                            className="md:hidden p-2 rounded-lg text-2xl hover:text-red-400">
                             <BsFillMenuButtonWideFill />
                         </button>
 
                         {isOpen && (
-                            <div className="fixed inset-0 bg-black bg-opacity-70 flex flex-col justify-center items-center z-50">
+                            <div className="fixed inset-0 bg-black bg-opacity-90 flex flex-col justify-center items-center z-50">
                                 <div 
                                     onClick={handleMenuToggle} 
                                     className="absolute top-4 right-4 text-white cursor-pointer">
@@ -101,28 +101,28 @@ const Navbar = () => {
                                 </div>
 
                                 <div className="flex flex-col space-y-4 text-lg">
-                                    <div className="flex items-center space-x-2 cursor-pointer text-gray-400 hover:text-black" onClick={handleAccountClick}>
+                                    <div className="flex items-center space-x-2 cursor-pointer text-gray-400 hover:text-white" onClick={handleAccountClick}>
                                         <RiAccountCircleLine size={24} />
                                         <span>{isAuthenticated ? user?.name || 'User' : 'Account'}</span>
                                     </div>
 
                                     <Link
                                     href='/'
-                                    className="flex items-center space-x-2 cursor-pointer hover:text-black">
+                                    className="flex items-center space-x-2 cursor-pointer text-gray-400 hover:text-black">
                                         <RiQuestionLine size={24} />
-                                        <span className="text-normal hover:text-black">Help</span>
+                                        <span className="text-normal text-gray-400 hover:text-black">Help</span>
                                     </Link>
 
-                                    <div className="flex items-center space-x-2 cursor-pointer hover:text-gray-300">
+                                    <div className="flex items-center space-x-2 cursor-pointer text-gray-400 hover:text-black">
                                         <RiAccountCircleLine size={24} />
-                                        <span className="text-normal">Blog</span>
+                                        <span className="text-normal text-gray-400 hover:text-black">Blog</span>
                                     </div>
 
                                     <div 
                                         onClick={handleCartClick} 
-                                        className="flex items-center space-x-2 cursor-pointer hover:text-gray-300">
+                                        className="flex items-center space-x-2 cursor-pointer text-gray-400 hover:text-black">
                                         <RiShoppingCartLine size={24} /> 
-                                        <span className="text-normal">Cart</span>
+                                        <span className="text-normal text-gray-400 hover:text-black">Cart</span>
                                         {cartCount > 0 && (
                                             <span className="ml-1 bg-red-600 text-white text-xs font-bold px-2 py-1 rounded-full">
                                                 {cartCount}

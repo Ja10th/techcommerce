@@ -35,7 +35,7 @@ const Timer = () => {
 
   return (
     <div>
-      <h2 className='text-gray-50 text-[1.5rem]'>
+      <h2 className='text-gray-50 text-sm lg:text-[1.5rem]'>
         Countdown: {getFormattedTime(timeLeft)}
       </h2>
     </div>
