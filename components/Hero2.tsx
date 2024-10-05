@@ -81,7 +81,7 @@ const SidebarDemo = ({ data }: any) => {
     <div>
       <div className='max-w-7xl mx-auto flex p-8 mb-10 rounded-xl py-10'>
         <div className='list-none text-sm bg-slate-100 rounded-xl py-10 flex'>
-          <div className='relative text-left px-10 w-[220px]'>
+          <div className='hidden lg:block relative text-left px-10 w-[220px]'>
             {Object.keys(dropdownContent).map((item) => (
               <div 
                 key={item}

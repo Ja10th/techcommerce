@@ -8,17 +8,18 @@ import { useShoppingCart } from 'use-shopping-cart';
 import Banner from './Banner'; 
 import { useAuth0 } from '@auth0/auth0-react';
 import { RiAccountCircleLine, RiQuestionLine, RiShoppingCartLine } from 'react-icons/ri'; 
+import { BsFillMenuButtonWideFill } from "react-icons/bs";
 
 const links = [
-    {name: 'Phones', href: '/Phones'},
-    {name: 'Laptops', href: '/Laptops'},
-    {name: 'Desktops', href: '/Desktops'},
+    { name: 'Phones', href: '/Phones' },
+    { name: 'Laptops', href: '/Laptops' },
+    { name: 'Desktops', href: '/Desktops' },
 ];
 
-const Navbar = () => { 
+const Navbar = () => {
     const { loginWithRedirect, logout, user, isAuthenticated } = useAuth0();
     const pathname = usePathname(); 
-    const { handleCartClick } = useShoppingCart(); 
+    const { handleCartClick, cartCount } = useShoppingCart(); // Access cartCount
 
     const [searchTerm, setSearchTerm] = useState('');
     const [isOpen, setIsOpen] = useState(false); 
@@ -74,7 +75,7 @@ const Navbar = () => {
                             placeholder="Search products, brands"
                             value={searchTerm} 
                             onChange={(e) => setSearchTerm(e.target.value)}
-                            className="border rounded-xl py-2 px-3 w-[150px] lg:w-[400px]  focus:outline-none focus:ring-2 focus:ring-blue-500"
+                            className="border rounded-xl py-2 px-3 w-[220px] lg:w-[400px]  focus:outline-none focus:ring-2 focus:ring-blue-500"
                         />
                         <button
                             onClick={handleSearch}
@@ -87,8 +88,8 @@ const Navbar = () => {
                     <div className="relative">
                         <button 
                             onClick={handleMenuToggle} 
-                            className="md:hidden p-2 rounded-lg bg-gray-300 hover:bg-gray-400">
-                            Menu
+                            className="md:hidden p-2 rounded-lg text-2xl hover:bg-gray-400">
+                            <BsFillMenuButtonWideFill />
                         </button>
 
                         {isOpen && (
@@ -121,7 +122,12 @@ const Navbar = () => {
                                         onClick={handleCartClick} 
                                         className="flex items-center space-x-2 cursor-pointer hover:text-gray-300">
                                         <RiShoppingCartLine size={24} /> 
-                                        <span className="text-normal">Cart</span> 
+                                        <span className="text-normal">Cart</span>
+                                        {cartCount > 0 && (
+                                            <span className="ml-1 bg-red-600 text-white text-xs font-bold px-2 py-1 rounded-full">
+                                                {cartCount}
+                                            </span>
+                                        )}
                                     </div>
                                 </div>
                             </div>
@@ -156,13 +162,18 @@ const Navbar = () => {
                             onClick={handleCartClick} 
                             className="flex items-center space-x-2 cursor-pointer group p-2 rounded-lg">
                             <RiShoppingCartLine size={24} className='text-gray-500 group-hover:text-black'/>
-                            <span className="text-normal text-gray-500 group-hover:text-black">Cart</span> 
+                            <span className="text-normal text-gray-500 group-hover:text-black">Cart</span>
+                            {cartCount > 0 && (
+                                <span className="ml-1 bg-red-400 text-white text-xs font-bold px-2 py-1 rounded-full">
+                                    {cartCount}
+                                </span>
+                            )}
                         </div>
                     </div>
                 </div>
             </div>
         </>
     );
-}
+};
 
-export default Navbar; 
+export default Navbar;

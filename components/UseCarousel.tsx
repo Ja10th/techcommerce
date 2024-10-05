@@ -24,7 +24,7 @@ const UseCarousel = ({ data }: { data: any }) => {
   useEffect(() => {
     const intervalId1 = setInterval(() => {
       setCurrentIndex1((prevIndex) => (prevIndex + 1) % heroImages1.length);
-    }, 2000); // Change image every 5 seconds
+    }, 2000); // Change image every 2 seconds
 
     return () => clearInterval(intervalId1); // Clean up interval on component unmount
   }, [heroImages1.length]);
@@ -33,16 +33,17 @@ const UseCarousel = ({ data }: { data: any }) => {
   useEffect(() => {
     const intervalId2 = setInterval(() => {
       setCurrentIndex2((prevIndex) => (prevIndex + 1) % heroImages2.length);
-    }, 2000); // Change image every 5 seconds
+    }, 2000); // Change image every 2 seconds
 
     return () => clearInterval(intervalId2); // Clean up interval on component unmount
   }, [heroImages2.length]);
 
   return (
     <div className='overflow-hidden'>
-      <div className='flex flex-col gap-y-3 lg:flex-row px-10 max-w-7xl pb-10 mx-auto'>
+      <div className='flex flex-col gap-y-3 lg:flex-row px-4 sm:px-10 max-w-7xl pb-10 mx-auto'>
+        
         {/* First Image */}
-        <div className='flex-shrink-0 w-[600px] h-[400px] relative'>
+        <div className='w-full lg:w-[600px] h-[300px] sm:h-[400px] relative aspect-[4/3]'>
           <Image
             src={heroImages1[currentIndex1]}
             alt={`hero image 1 - ${currentIndex1 + 1}`}
@@ -53,7 +54,7 @@ const UseCarousel = ({ data }: { data: any }) => {
         </div>
 
         {/* Second Image */}
-        <div className='flex-shrink-0 w-[600px] h-[400px] relative'>
+        <div className='w-full lg:w-[600px] h-[300px] sm:h-[400px] relative aspect-[4/3]'>
           <Image
             src={heroImages2[currentIndex2]}
             alt={`hero image 2 - ${currentIndex2 + 1}`}
