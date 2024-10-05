@@ -154,9 +154,8 @@ const Navbar = () => {
                             <span className="text-normal text-gray-500 group-hover:text-black ">Blog</span>
                         </Link>
 
-                        <div 
-                            onClick={handleCartClick} 
-                            className="flex items-center space-x-2 cursor-pointer group p-2 rounded-lg">
+                        <div className="flex items-center space-x-2 cursor-pointer group p-2 rounded-lg">
+                        <Link href="/cart" className="flex items-center space-x-2 w-full">
                             <RiShoppingCartLine size={24} className='text-gray-500 group-hover:text-black'/>
                             <span className="text-normal text-gray-500 group-hover:text-black">Cart</span>
                             {safeCartCount > 0 && (
@@ -164,7 +163,8 @@ const Navbar = () => {
                                     {cartCount}
                                 </span>
                             )}
-                        </div>
+                        </Link>
+                    </div>
                     </div>
                 </div>
             </div>

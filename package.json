@@ -21,7 +21,7 @@
     "i": "^0.3.7",
     "mini-svg-data-uri": "^1.4.4",
     "netlify-cli": "^17.36.4",
-    "next": "14.2.5",
+    "next": "^14.2.14",
     "next-auth": "^4.24.8",
     "next-sanity": "^9.4.2",
     "next-themes": "^0.3.0",
@@ -38,6 +38,7 @@
     "use-shopping-cart": "^3.2.0"
   },
   "devDependencies": {
+    "@types/next": "^9.0.0",
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
