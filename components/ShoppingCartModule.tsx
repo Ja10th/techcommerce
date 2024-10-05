@@ -12,6 +12,9 @@ const ShoppingCartModule = () => {
     const { user, isAuthenticated, loginWithRedirect } = useAuth0();
     const [address, setAddress] = useState('');
 
+    // Safely use cartCount and totalPrice
+    const safeCartCount = cartCount ?? 0; // Defaults to 0 if cartCount is undefined
+    const safeTotalPrice = totalPrice ?? 0; // Defaults to 0 if totalPrice is undefined
     // If user is authenticated, grab their details (email) for Paystack
     const userEmail = isAuthenticated ? user?.email : '';
 
@@ -21,7 +24,7 @@ const ShoppingCartModule = () => {
 
     const paystackConfig = {
         email: userEmail || 'customer@example.com',  // User email from Auth0 or default
-        amount: totalPrice * 100,  // Paystack expects amount in kobo
+        amount: safeTotalPrice * 100,  // Paystack expects amount in kobo
         publicKey: 'pk_test_110f5d5fffad6bc1dae024858bb6e25cb2924994', // Your Paystack public key
         metadata: {
           custom_fields: [
@@ -108,11 +111,11 @@ const ShoppingCartModule = () => {
                         </ul>
                     </div>
                     
-                    {cartCount > 0 && (
+                    {safeCartCount > 0 && (
                       <div className='border-t border-gray-300 pt-6'>
                           <div className='flex justify-between text-lg font-medium text-gray-900'>
                               <p>Subtotal:</p>
-                              <p>₦{totalPrice.toLocaleString()}</p>
+                              <p>₦{safeTotalPrice.toLocaleString()}</p>
                           </div>
                           <p className='mt-1 text-sm text-gray-500'>Shipping and taxes calculated at checkout.</p>
 

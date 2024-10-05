@@ -1,4 +1,4 @@
-'use client';
+'use client'; // Make sure this is included
 
 import Link from 'next/link'; 
 import { usePathname } from 'next/navigation'; 
@@ -9,18 +9,14 @@ import Banner from './Banner';
 import { useAuth0 } from '@auth0/auth0-react';
 import { RiAccountCircleLine, RiQuestionLine, RiShoppingCartLine } from 'react-icons/ri'; 
 import { BsFillMenuButtonWideFill } from "react-icons/bs";
-
-const links = [
-    { name: 'Phones', href: '/Phones' },
-    { name: 'Laptops', href: '/Laptops' },
-    { name: 'Desktops', href: '/Desktops' },
-];
+import { useRouter } from 'next/navigation'; // Correct import for Next.js 13+
 
 const Navbar = () => {
+    const router = useRouter();  // Initialize useRouter
     const { loginWithRedirect, logout, user, isAuthenticated } = useAuth0();
     const pathname = usePathname(); 
-    const { handleCartClick, cartCount } = useShoppingCart(); // Access cartCount
-
+    const { handleCartClick, cartCount } = useShoppingCart(); 
+    const safeCartCount = cartCount ?? 0; 
     const [searchTerm, setSearchTerm] = useState('');
     const [isOpen, setIsOpen] = useState(false); 
 
@@ -30,23 +26,23 @@ const Navbar = () => {
 
     const handleSearch = () => {
         if (searchTerm) {
-            window.location.href = `/search?query=${encodeURIComponent(searchTerm)}`;
+            router.push(`/search?query=${encodeURIComponent(searchTerm)}`);  // Use router.push
         } else {
             alert('Please enter a product to search for');
         }
     };
 
     const handleLogout = () => {
-        logout(); 
-        window.location.href = '/'; 
+        logout();
+        router.push('/');  // Use router.push instead of window.location.href
     };
 
     const handleAccountClick = (e: React.MouseEvent<HTMLDivElement>) => {
-        e.preventDefault(); // Prevent any default action
+        e.preventDefault(); 
         if (isAuthenticated) {
-            handleLogout(); // Call your logout function
+            handleLogout();
         } else {
-            loginWithRedirect(); // Call your login function
+            loginWithRedirect();
         }
     };
 
@@ -123,7 +119,7 @@ const Navbar = () => {
                                         className="flex items-center space-x-2 cursor-pointer text-gray-400 hover:text-black">
                                         <RiShoppingCartLine size={24} /> 
                                         <span className="text-normal text-gray-400 hover:text-black">Cart</span>
-                                        {cartCount > 0 && (
+                                        {safeCartCount > 0 && (
                                             <span className="ml-1 bg-red-600 text-white text-xs font-bold px-2 py-1 rounded-full">
                                                 {cartCount}
                                             </span>
@@ -163,7 +159,7 @@ const Navbar = () => {
                             className="flex items-center space-x-2 cursor-pointer group p-2 rounded-lg">
                             <RiShoppingCartLine size={24} className='text-gray-500 group-hover:text-black'/>
                             <span className="text-normal text-gray-500 group-hover:text-black">Cart</span>
-                            {cartCount > 0 && (
+                            {safeCartCount > 0 && (
                                 <span className="ml-1 bg-red-400 text-white text-xs font-bold px-2 py-1 rounded-full">
                                     {cartCount}
                                 </span>
